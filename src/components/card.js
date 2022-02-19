@@ -1,6 +1,6 @@
 
 
-const Weather = ({data,temp,feels_like, day, max, min, imperial, border})=>{
+const Card = ({data, day, max, min, imperial})=>{
 
   let dayofweek= new Date(day*1000).toLocaleString("en-us", {weekday: "long"})
   
@@ -11,25 +11,8 @@ const Weather = ({data,temp,feels_like, day, max, min, imperial, border})=>{
       <img src={"http://openweathermap.org/img/w/" + data.weather[0].icon + ".png"} alt={data.weather[0].description}/>
     
       { 
-        temp!==undefined
-        
-        ? <div>
-            {
-              imperial
-              
-              ?<>
-                <p className="temperature">{Math.round(temp)}° F</p> 
-                <p className="temperature">Feels like {Math.round(feels_like)}° F</p>
-               </>
 
-              :<>
-                <p className="temperature">{Math.round((temp - 32) * (5/9))}° C</p> 
-                <p className="temperature">Feels like {Math.round((feels_like- 32) * (5/9))}° C</p>
-               </>
-            }
-          </div>
-
-        : <div>
+        <div>
             {
               imperial
                
@@ -43,7 +26,8 @@ const Weather = ({data,temp,feels_like, day, max, min, imperial, border})=>{
                 <p className="temperature">{Math.round((min- 32) * (5/9))}° C</p>
               </>
             }
-          </div>
+        </div>
+
       }
       
       <p className="description">{data.weather[0].description}</p> 
@@ -52,4 +36,4 @@ const Weather = ({data,temp,feels_like, day, max, min, imperial, border})=>{
   )
 }
 
-export default Weather;
+export default Card;

@@ -1,6 +1,7 @@
+
 //COMPONENTS
 import Card from './card';
-
+import LargeCard from './largecard';
 
 const Weather = ({ data, city, imperial })=>{
 
@@ -15,24 +16,16 @@ const Weather = ({ data, city, imperial })=>{
   return (
     <div className='weather-container'>
         
-
         <div className='current-container'>
             <h1>Current</h1>
-            { 
-
-            city.length===0 
-            
-              ? <p className='city'>San Francisco</p> 
-
-              : <p className='city'>{formattedCity(city)}</p>
-
-        }
-            <Card key={current.dt} 
-                  data={current} 
-                  day={current.dt} 
-                  temp={current.temp} 
-                  feels_like={current.feels_like} 
-                  imperial={imperial}
+            <LargeCard 
+              key = {current.dt} 
+              data = {current} 
+              day = {current.dt} 
+              temp = {current.temp} 
+              feels_like = {current.feels_like} 
+              imperial = {imperial}
+              city = {city.length===0 ? 'San Francisco' : formattedCity(city)}
             />
         </div>
 
