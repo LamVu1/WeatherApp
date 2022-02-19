@@ -13,19 +13,20 @@ const Weather = ({ data, city, imperial })=>{
   const formattedCity = (city) => city.split(' ').map( word=> capitalize(word)).join(' ')
 
   return (
-    <>
-        { 
+    <div className='weather-container'>
+        
+
+        <div className='current-container'>
+            <h1>Current</h1>
+            { 
 
             city.length===0 
             
-              ? <p>San Francisco</p> 
+              ? <p className='city'>San Francisco</p> 
 
-              : <p>{formattedCity(city)}</p>
+              : <p className='city'>{formattedCity(city)}</p>
 
         }
-
-        <div>
-            <h1>Current</h1>
             <Card key={current.dt} 
                   data={current} 
                   day={current.dt} 
@@ -35,7 +36,7 @@ const Weather = ({ data, city, imperial })=>{
             />
         </div>
 
-        <div style={{display: 'flex', }}>
+        <div className='week-container'>
           {
             data.daily.slice(0,-1).map(day=>{
               return <Card  key={day.dt} 
@@ -44,11 +45,12 @@ const Weather = ({ data, city, imperial })=>{
                             max={day.temp.max} 
                             min={day.temp.min} 
                             imperial={imperial}
+                            border={true}
                       />
             })
           }
         </div>
-    </>
+    </div>
   )
 }
 

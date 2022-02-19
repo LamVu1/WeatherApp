@@ -1,5 +1,76 @@
+.body{
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   text-align: center;
+  background-color: #3076e3;
+  max-width: 100vw;
+  height: 100vh;
+  padding-top: 2rem;
+}
+
+.weather-container{
+  background-color: #3076e3;
+}
+
+.week-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 2rem;
+  margin: 0;
+}
+
+.current-container{
+  background-color: #FFFFFF;
+}
+
+.card-container{
+  padding: 1rem;
+  background-color: #FFFFFF;
+}
+
+.btn-container{
+  position: absolute;
+  right: 20%;
+  margin-top: 1rem;
+  box-shadow: 3px 2px 2px #888888;
+  width: 10%;
+  height: 2rem;
+}
+
+.unit-btn{
+  background-color: white;
+  border: none;
+  width: 50%;
+  height: 100%;
+}
+
+.unit-btn:hover{
+  cursor: pointer;
+  background-color: #dcd9d9;
+}
+
+.selected{
+  background-color: #bcbcbc;
+}
+
+p{
+  margin: 0;
+  padding: .2rem;
+}
+
+.city{
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+h1{
+  margin: 0;
+  padding: 1rem;
+  color: white;
+  text-shadow: 0px 0px 6px rgb(0 0 0);
 }
 
 .App-logo {
@@ -7,32 +78,71 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.form{
+  padding: 1rem;
+  background-color: #1957b9;
+}
+
+.form-input{
+  width: 20vw;
+  padding: .5rem;
+  font-size: 1rem;
+  border: none;
+}
+
+.form-button{
+  padding: .5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+}
+
+.form-button:hover{
+  cursor: pointer;
+  background-color: #dcd9d9;
+}
+
+.day{
+  font-weight: 600;
+}
+
+.description{
+  font-weight: 500;
+}
+
+.temperature{
+  font-weight: 500;
+}
+
+
+@media only screen and (max-width: 768px) {
+  body{
+    font-size: 1.4rem;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .week-container{
+    display:flex;
+    flex-direction: column;
+    padding: 0rem 0.5rem
   }
-  to {
-    transform: rotate(360deg);
+
+  .card-container {
+    margin: .25rem 0rem;
+  }
+
+  .btn-container{
+    right: 5%;
+    width: 15%;
+    height: 8%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unit-btn{
+    width: 100%;
+    height: 50%;
+  }
+
+  .form-input {
+    width: 50vw;
   }
 }

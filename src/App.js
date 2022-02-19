@@ -50,40 +50,56 @@ function App() {
             setWeather(data)
         })
         .catch(err => {
-          console.log(err)
-          alert('Please enter valid city')
+            console.log(err)
+            alert('Please enter valid city')
         });
 
       setSearchCity(city)
       setCity('')
   }
 
+  const handleUnit = (e)=>{
+    if(e.target.classList[0]==='fahrenheit'){
+      e.target.classList.toggle('selected')
+      let c = document.getElementsByClassName('celsius')[0]
+      c.classList.toggle('selected')
+      setImperial(true)
+    }else{
+       e.target.classList.toggle('selected')
+      let f = document.getElementsByClassName('fahrenheit')[0]
+      f.classList.toggle('selected')
+      setImperial(false)
+    }
+  }
+
   return (
     <div className="App">
-      <h1 className="heading">Simple Weather App</h1>
 
-      <form onSubmit={fetchWeather}>
+      <form className="form" onSubmit={fetchWeather}>
+      <h1>Simple Weather App</h1>
 
           <input type="text" 
               onChange={(e)=>setCity(e.target.value)} 
               placeholder="Search for a city" 
               value={city}
+              className="form-input"
           />
-          
-          <button type='submit'>
-              Search
-          </button>
+          <button className='form-button'>Search</button>
 
       </form>
-      
-      <button onClick={(e)=>setImperial(prev=>!prev)}>
-          Toggle to {imperial ? 'C' : 'F'}
+      <div className='btn-container'>
+         <button className='celsius unit-btn' onClick={(e)=>handleUnit(e)}>
+         °C
       </button>
+     <button className='fahrenheit unit-btn selected' onClick={(e)=>handleUnit(e)}>
+         °F
+      </button>
+      </div>
      
       {
 
-          Object.keys(weather).length !== 0 && 
-          <Weather data={weather} city={searchCity} imperial={imperial}/>
+        Object.keys(weather).length !== 0 && 
+        <Weather data={weather} city={searchCity} imperial={imperial}/>
       
       }
 
